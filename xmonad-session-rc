@@ -1,1 +1,14 @@
 setxkbmap -layout "us,ru(winkeys)" -model "pc105" -option "grp:shifts_toggle,grp_led:scroll,caps:ctrl_modifier" &
+
+
+feh --bg-center ~/xmonad_help.png
+kbdd &
+# ==============================
+# START VOLUME BAR CONFIGURATION
+export _volume_pipe=/tmp/.volume-pipe
+[[ -S $_volume_pipe ]] || mkfifo $_volume_pipe
+
+nohup /bin/sh -c "while true;do ~/.xmonad/getvolume.sh > /tmp/.volume-pipe;sleep 5;done" &
+# END VOLUME BAR CONFIGURATION
+# ==============================
+
