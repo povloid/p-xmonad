@@ -61,7 +61,7 @@ import XMonad.Hooks.SetWMName
 
 
 defaults = defaultConfig {
-        terminal      = "xterm"
+        terminal      = "lxterminal"
         --`, font		  = "xft:Droid Sans Mono:size=10"
         , normalBorderColor   = "black"
         , focusedBorderColor  = "#4f4" 
@@ -137,10 +137,16 @@ myKeys = [
                    
 
 
+
+
+
+
 main = do
 	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.hs"
-	xmonad $ defaults {
-	logHook =  dynamicLogWithPP $ defaultPP {
+	xmonad
+          $ ewmh 
+          $ defaults {
+	  logHook =  dynamicLogWithPP $ defaultPP {
             ppOutput = System.IO.hPutStrLn xmproc
           , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100 .wrap "  [ <fc=gray>" "</fc> ]  "
           , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "" . wrap "[" "]"
