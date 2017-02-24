@@ -53,6 +53,8 @@ import XMonad.Layout.Gaps
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 
+import XMonad.Actions.CycleWS
+
 
 -- main = xmonad defaultConfig
 --        { modMask = mod4Mask -- Use Super instead of Alt
@@ -126,9 +128,16 @@ myManageHook = composeAll . concat $
 	
 	--KP_Add KP_Subtract
 myKeys = [
-           ((mod4Mask, xK_Right), nextScreen) 
-         , ((mod4Mask .|. controlMask, xK_Left ), prevScreen)
+         ((mod1Mask .|. controlMask, xK_Right), nextWS) 
+         , ((mod1Mask .|. controlMask, xK_Left ), prevWS)
+
+         --  ((mod1Mask .|. controlMask, xK_Right), nextScreen) 
+         --, ((mod1Mask .|. controlMask, xK_Left ), prevScreen)
+  
+         
+  
          , ((mod4Mask, xK_g), goToSelected defaultGSConfig)
+         
          , ((mod1Mask .|. controlMask, xK_l), spawn "xscreensaver-command -lock")
          , ((mod4Mask, xK_s), spawnSelected defaultGSConfig ["emacs","gvim"])
          
