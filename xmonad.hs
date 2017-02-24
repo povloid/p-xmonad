@@ -129,9 +129,14 @@ myKeys = [
            ((mod4Mask, xK_Right), nextScreen) 
          , ((mod4Mask .|. controlMask, xK_Left ), prevScreen)
          , ((mod4Mask, xK_g), goToSelected defaultGSConfig)
-	 	     , ((mod4Mask, xK_s), spawnSelected defaultGSConfig ["emacs","gvim"])
-	 	     , ((mod4Mask, xK_equal), spawn "amixer set Master 10%+ && ~/.xmonad/getvolume.sh >> /tmp/.volume-pipe")
-	 	     , ((mod4Mask, xK_minus), spawn "amixer set Master 10%- && ~/.xmonad/getvolume.sh >> /tmp/.volume-pipe")
+         , ((mod1Mask .|. controlMask, xK_l), spawn "xscreensaver-command -lock")
+         , ((mod4Mask, xK_s), spawnSelected defaultGSConfig ["emacs","gvim"])
+         
+	 , ((0, xK_Print), spawn "mate-screenshot")
+	 , ((mod1Mask, xK_Print), spawn "mate-screenshot -i")
+           
+	 , ((mod4Mask, xK_equal), spawn "amixer set Master 2%+ && ~/.xmonad/getvolume.sh >> /tmp/.volume-pipe")
+	 , ((mod4Mask, xK_minus), spawn "amixer set Master 2%- && ~/.xmonad/getvolume.sh >> /tmp/.volume-pipe")
          , ((mod4Mask, xK_b     ), sendMessage ToggleStruts)
          ]
                    

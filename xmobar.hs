@@ -1,8 +1,8 @@
 Config {
-    font = "xft:Droid Sans Mono:size=10:bold:antialias=true"
-    bgColor = "#000000",
+    font = "xft:PTMono:size=10:bold:antialias=true"
+    bgColor = "#555",
     fgColor = "#ffffff",
-    position = Static { xpos = 0, ypos = 0, width = 1920, height = 16 },
+    position = Static { xpos = 0, ypos = 0, width = 1920, height = 19 },
     lowerOnStart = True,
     commands = [
          --Run Weather "UUDD" ["-t","<tempC>°C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
@@ -39,5 +39,5 @@ Config {
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{ %coretemp% | %multicpu% | %memory%  | %eth0% | %vol% | <fc=#FFFFCC>%date%</fc>   "
+    template = "%StdinReader% }{ %coretemp% | %multicpu% | %memory%  | %eth0% | %vol% | <fc=#FFFFCC>%date%</fc> "
 }
